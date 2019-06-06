@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentAFlat.Views.EliminarVivienda">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="10" CornerRadius="7" HasShadow="False" OutlineColor="Black">
+                <StackLayout>
+            <Label Text="Eliminar Vivienda" FontSize="30" HorizontalOptions="CenterAndExpand"/>
+
+            <Label Text="{Binding Vivienda.Ciudad}"/>
+            <Label Text="{Binding Vivienda.Ubicacion}"/>
+            <Label Text="{Binding Vivienda.Descripcion}"/>
+
+            <Button Text="Eliminar vivienda" BackgroundColor="Red" TextColor="White" Command="{Binding EliminarVivienda}"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImage="fondo2.jpg"
+             Title="Conocenos!"
+             x:Class="RentAFlat.Views.Conocenos">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <Label TextColor="Black" Text="CONÓCENOS...
+                       Busca tu casa ideal
+                       Creemos que la búsqueda de una casa es un proceso que está lleno de penumbra y de falta de transparencia Desde Rent a 
+                       house queremos aportar luz y claridad en la oscuridad, 
+                       hacer nuestro trabajo apoyados en los valores de la compañía: confianza,
+                       claridad, optimismo y transparencia. Miembros de la empresa: "
+                       VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Orientation="Horizontal" Padding="5">
+                <Label Text="Maria Escobar. Cofundadora y Directora de operaciones." VerticalOptions="Center"/>
+                <Image Source="work1.jpg"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Orientation="Horizontal" Padding="5">
+                <Label Text="Valentín Silvertino. Cofundador y Director de comunicación y jefe de estudios de mercado." VerticalOptions="Center"/>
+                <Image Source="work2.jpg"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Orientation="Horizontal" Padding="5">
+                <Label Text="Félix Palma. Director de Tecnología y Ventas.    " VerticalOptions="Center"/>
+                <Image Source="work4.jpg"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

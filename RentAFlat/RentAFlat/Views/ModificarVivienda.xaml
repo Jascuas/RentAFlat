@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentAFlat.Views.ModificarVivienda">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="10" CornerRadius="7" HasShadow="False" OutlineColor="Black">
+
+                <StackLayout>
+
+
+                    <!--<Label Text="Cliente:"/>
+                <Entry Text="{Binding Vivienda.IdCliente}" HorizontalOptions="FillAndExpand"/>-->
+
+                    <StackLayout Orientation="Horizontal">
+                        <!--<Picker x:Name="tipo2"
+                Title="Cliente"
+                                
+                ItemsSource="{Binding TipoClientes}"
+                ItemDisplayBinding="{Binding NombreCliente}"
+                SelectedItem="{Binding Clientes}"
+                HorizontalOptions="CenterAndExpand"/>-->
+
+                        <Picker x:Name="costa"
+                Title="Costa"
+                ItemsSource="{Binding Costas}"
+                ItemDisplayBinding="{Binding NombreProvincia}"
+                SelectedItem="{Binding Costa}"
+                HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Codigo Postal"/>
+                        <Entry Text="{Binding Vivienda.Codigo_Posta}" HorizontalOptions="FillAndExpand"/>
+
+
+                        <Label Text="Garaje"/>
+                        <Entry Text="{Binding Vivienda.Garaje}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Ciudad"/>
+                        <Entry Text="{Binding Vivienda.Ciudad}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Ubicacion"/>
+                        <Entry Text="{Binding Vivienda.Ubicacion}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+
+
+                    <Picker x:Name="tipo"
+                            
+                Title="Tipo de vivienda"
+                ItemsSource="{Binding TiposViviendas}"
+                ItemDisplayBinding="{Binding Descripcion}"
+                SelectedItem="{Binding TiposVivienda}"
+                HorizontalOptions="CenterAndExpand"/>
+
+
+
+
+
+
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <Label Text="Habitaciones:"/>
+                        <Entry Text="{Binding Vivienda.Num_habitaciones}" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Baños:"/>
+                        <Entry Text="{Binding Vivienda.Num_banios}" HorizontalOptions="FillAndExpand"/>
+
+                        <Label Text="Tamaño:"/>
+                        <Entry Text="{Binding Vivienda.Tamanio_vivienda}" HorizontalOptions="FillAndExpand"/>
+
+                    </StackLayout>
+
+                    <Label Text="Descripcion"/>
+                    <Entry Text="{Binding Vivienda.Descripcion}" HorizontalOptions="FillAndExpand"/>
+
+
+                    <Button Text="MODIFICAR vivienda" HorizontalOptions="FillAndExpand" Command="{Binding Modificarvivienda}"/>
+
+                </StackLayout>
+
+            </Frame>
+          
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

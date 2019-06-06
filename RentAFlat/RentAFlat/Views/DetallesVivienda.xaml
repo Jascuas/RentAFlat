@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Detalles de la vivienda"
+             xmlns:converters="clr-namespace:RentAFlat.Converters"
+             x:Class="RentAFlat.Views.DetallesVivienda">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ConvertidorGaraje x:Key="convertidorgaraje"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="0,30,0,0">
+            <Frame CornerRadius="10" Margin="3" Padding="0" IsClippedToBounds="True" >
+                <Image Source="piso.jpg" Style="border-radius: 8px; " />
+            </Frame>
+            <Label Text="{Binding Vivienda.Ubicacion}" TextColor="Black"
+                   FontSize="20" HorizontalOptions="Center"/>
+            <Label Text="{Binding Vivienda.Ciudad}" TextColor="Gray"
+                   FontSize="10" HorizontalOptions="Center"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label TextColor="Black" FontSize="10" Grid.Column="0"
+                       Text="Habitaciones" HorizontalOptions="Center"
+                       Grid.Row="0" Margin="5,0"/>
+                <Image Source="habitaciones.png" Grid.Column="0" 
+                       Grid.Row="1" Margin="5,0"/>
+                <Label TextColor="Gray" FontSize="10" Grid.Column="1" 
+                       Text="{Binding Vivienda.Num_habitaciones}"
+                       HorizontalOptions="Center" Grid.Row="1"
+/>
+                <Label TextColor="Black" FontSize="10" Grid.Column="2"
+                       Text="Baños" HorizontalOptions="Center"
+                       Grid.Row="0" Margin="0"/>
+                <Image Source="banos.png" Grid.Column="2" 
+                       Grid.Row="1"/>
+                <Label TextColor="Gray" FontSize="10" Grid.Column="3"
+                       Text="{Binding Vivienda.Num_banios}"
+                       HorizontalOptions="Center" Grid.Row="1"/>
+                <Label TextColor="Black" FontSize="10" Grid.Column="4"
+                       Text="Tamaño" HorizontalOptions="Center"
+                       Grid.Row="0" Margin="0"/>
+                <Image Source="tamano.png" Grid.Column="4" 
+                       Grid.Row="1"/>
+                <Label TextColor="Gray" FontSize="10" Grid.Column="5"
+                       Text="{Binding Vivienda.Tamanio_vivienda }"
+                       HorizontalOptions="Center" Grid.Row="1"/>
+                <Label TextColor="Black" FontSize="10" Grid.Column="6"
+                       Text="Garaje" HorizontalOptions="Center"
+                       Grid.Row="0" Margin="0"/>
+                <Image Source="garaje.png" Grid.Column="6" 
+                       Grid.Row="1" />
+                <Label TextColor="Gray" FontSize="10" Grid.Column="7"
+                       Text="{Binding Vivienda.Garaje, Mode=OneWay,
+                 Converter={StaticResource convertidorgaraje}}" x:Name="Garaje"
+                       HorizontalOptions="Center" Grid.Row="1"/>
+            </Grid>
+            <BoxView Color="Black" WidthRequest ="100" HeightRequest="1" Margin="0,10"/>
+            <Label Text="Descripción: " TextColor="Black"
+                   FontSize="20" HorizontalOptions="Fill" Margin="5,10"/>
+            <Label Text="{Binding Vivienda.Descripcion}"
+                FontSize="10" TextColor="Gray"
+                HorizontalOptions="FillAndExpand" Margin="5,0"/>
+            <Label Text="{Binding Vivienda.Descripcion_vivienda}"
+                FontSize="10" TextColor="Gray"
+                HorizontalOptions="FillAndExpand" Margin="5,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

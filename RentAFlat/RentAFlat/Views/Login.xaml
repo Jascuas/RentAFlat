@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentAFlat.Views.Login"
+             xmlns:viewmodels="clr-namespace:RentAFlat.ViewModels"
+             Title="Login">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand">
+            
+            <Image Source="Admin.png" HorizontalOptions="Center" HeightRequest="200" />
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="15">
+
+                <Entry Placeholder="Email/User"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding Usuario.Login}"/>
+
+                <Entry IsPassword="True"
+                       HorizontalOptions="FillAndExpand"
+                       Placeholder="Password"
+                       Text="{Binding Usuario.Password}"/>
+
+                <Button HorizontalOptions="FillAndExpand"
+                        x:Name="botonlogin"
+                        Text="Iniciar sesion" Command="{Binding Login}"/>
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Modo administrador ¬¬"
+             x:Class="RentAFlat.Views.Admin">
+    <ContentPage.Content>
+        <StackLayout  Margin="0, 15, 0, 0">
+            <Label Text="Admin to Rent a Flat!"
+                HorizontalOptions="CenterAndExpand" FontSize="30" TextColor="Blue"/>
+            <Frame HasShadow="true" CornerRadius="10"  IsClippedToBounds="True">
+                <StackLayout >
+                    <Image Source="home.jpg" HorizontalOptions="FillAndExpand" />
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

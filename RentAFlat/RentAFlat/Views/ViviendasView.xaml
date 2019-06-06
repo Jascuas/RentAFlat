@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:RentAFlat.ViewModels"
+             x:Name="vistaviviendas"
+             Title="Viviendas disponibles"
+             xmlns:local="clr-namespace:RentAFlat"
+             xmlns:control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             BindingContext="{Binding Source={x:Static local:App.Locator}, Path=ViviendasViewModel}"
+             x:Class="RentAFlat.Views.ViviendasView">
+
+    <ContentView >
+        <StackLayout>
+            <StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            </StackLayout>
+            <control:CarouselView ItemsSource="{Binding Viviendas}" Margin="0,40,0,0" >
+                <control:CarouselView.ItemTemplate>
+                    <DataTemplate >
+                        <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                            <Frame  Margin="15" CornerRadius="7" HasShadow="False" OutlineColor="Black">
+                                <StackLayout>
+                                    <Image Source="piso.jpg" 
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding .}" 
+                                            Command="{Binding BindingContext.MostrarDetallesVivienda,Source={x:Reference vistaviviendas}}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label Text="{Binding Ubicacion}" TextColor="Black"
+                               FontSize="20" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Ciudad}" TextColor="Gray"
+                               FontSize="10" HorizontalOptions="Center"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label TextColor="Black" FontSize="10" Grid.Column="0"
+                                       Text="{Binding Tamanio_vivienda, StringFormat='{0} m2'}" HorizontalOptions="Center"/>
+                                        <Label TextColor="Black" FontSize="10" Grid.Column="1"
+                                       Text="{Binding Num_habitaciones, StringFormat='{0} Habitaciones'}" HorizontalOptions="Center"/>
+                                        <Label TextColor="Black" FontSize="10" Grid.Column="2"
+                                       Text="{Binding Num_banios, StringFormat='{0} Baños'}" HorizontalOptions="Center"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                                <Label TextColor="Blue" FontSize="15"
+                                       Text="{Binding Current}" HorizontalOptions="Center"/>
+                                <Label TextColor="Blue" FontSize="15"
+                                       Text="/" HorizontalOptions="Start"/>
+                                <Label TextColor="Blue" FontSize="15"
+                                       Text="{Binding Total}" HorizontalOptions="Center" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </control:CarouselView.ItemTemplate>
+            </control:CarouselView>
+        </StackLayout>
+    </ContentView>
+</ContentPage>

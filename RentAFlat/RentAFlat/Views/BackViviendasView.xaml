@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:RentAFlat.ViewModels"
+             x:Name="vistaviviendas"
+             Title="Administrar Viviendas"
+             xmlns:local="clr-namespace:RentAFlat"
+             BindingContext="{Binding Source={x:Static local:App.Locator}, Path=ViviendasViewModel}"
+             
+             x:Class="RentAFlat.Views.BackViviendasView">
+    <ContentPage.Content>
+        <StackLayout Margin="0,30,0,0">
+            <Button Text="Nueva vivienda" HorizontalOptions="FillAndExpand" BorderColor="Green" BackgroundColor="Green" TextColor="White"
+                    Command="{Binding NuevaVivienda}"/>
+
+            <ListView ItemsSource="{Binding Viviendas}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                           
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Modificar" CommandParameter="{Binding .}"
+                                       Command="{Binding BindingContext.Modificarvivienda,Source={x:Reference vistaviviendas}}" />
+                                <MenuItem Text="Eliminar" CommandParameter="{Binding .}"
+                                       Command="{Binding BindingContext.Eliminarvivienda,Source={x:Reference vistaviviendas}}" />
+                              
+                            </ViewCell.ContextActions>
+                            <Frame OutlineColor="Blue" Padding="5" Margin="5">
+                            <Grid>
+                            <!--celdas tengan un menu, presionas 3 segundos aparece-->
+                         
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="20"/>
+                                 
+                                </Grid.ColumnDefinitions>
+                              
+                                <Label TextColor="Black" Grid.Column="0"  Text="{Binding Ubicacion}"/>
+                                        
+                                    <!--<Button Text="Eliminar" Grid.Column="1" BackgroundColor="Red" TextColor="White"
+                                        CommandParameter="{Binding .}"
+                                    Command="{Binding BindingContext.Eliminarvivienda , Source={x:Reference vistaviviendas}}"/>-->
+
+                                    <!--<Button Text="Modificar" Grid.Column="1" BackgroundColor="Yellow" TextColor="White"
+                                        CommandParameter="{Binding .}"
+                                    Command="{Binding BindingContext.Modificarvivienda , Source={x:Reference vistaviviendas}}"/>-->
+
+                                    <Image Source="info.png"  Grid.Column="2"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}" 
+                                            Command="{Binding BindingContext.MostrarDetallesVivienda,Source={x:Reference vistaviviendas}}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                   
+                               
+                            </Grid>
+                            </Frame>
+                         
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
